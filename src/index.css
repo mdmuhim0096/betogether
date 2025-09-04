@@ -1,0 +1,1012 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .shape {
+    @apply relative flex flex-col justify-center items-center w-[95%] h-[60%] sm:w-[80%] sm:h-[80%] md:w-[90%] md:h-[90%] p-4
+  }
+
+  .shape_modify {
+    @apply h-full sm:h-[80%] md:h-[90%]
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*::-webkit-scrollbar {
+  width: 0;
+}
+
+#focusd {
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #fff;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Put this in your stylesheet */
+.gradient-text {
+  display: inline-block;
+  background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+
+.btn-grad {
+  background-image: linear-gradient(to right, #1a2980bd 0%, #26d0cdb6 51%, #1a2980b0 100%)
+}
+
+.btn-grad {
+  text-align: center;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 10px;
+  display: block;
+}
+
+.btn-grad:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+
+.glass-card {
+  background: rgba(234, 234, 234, 0.126);
+  backdrop-filter: blur(33px);
+  -webkit-backdrop-filter: blur(33px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.148);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.313),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0 20px 10px rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.bg {
+  background-color: linier-gradient #e98f34 #d406d1 #04ba5c
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.8),
+      transparent);
+}
+
+.glass-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.8),
+      transparent,
+      rgba(255, 255, 255, 0.3));
+}
+
+
+/* Progress bar container */
+.progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: #333;
+  z-index: 10000;
+}
+
+.rainbow-bar {
+  width: 100%;
+  /* same as Tailwind h-16 (16 * 4px) */
+  background: linear-gradient(to right,
+      #ef4444,
+      /* red-500 */
+      #f59e0b,
+      /* yellow-500 */
+      #10b981,
+      /* green-500 */
+      #3b82f6,
+      /* blue-500 */
+      #6366f1,
+      /* indigo-500 */
+      #8b5cf6,
+      /* purple-500 */
+      #ec4899
+      /* pink-500 */
+    );
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-rainbow {
+  background: radial-gradient(circle at top,
+      #da5858,
+      /* red-500 */
+      #f1b44b,
+      /* yellow-500 */
+      #39cc9b,
+      /* green-500 */
+      #5a91ea,
+      /* blue-500 */
+      #6e70cc,
+      /* indigo-500 */
+      #8b5cf6,
+      /* purple-500 */
+      #e569a7
+      /* pink-500 */
+    );
+}
+
+/* Target the dots container */
+.react-multi-carousel-dot-list {
+  bottom: -20px;
+  /* Move up/down */
+}
+
+/* Target each dot */
+.react-multi-carousel-dot button {
+  width: 20px !important;
+  height: 3px !important;
+  border-radius: 0% !important;
+  background: #fff;
+  border: 2px solid #fff;
+  border: none !important;
+}
+
+/* Active dot */
+.react-multi-carousel-dot--active button {
+  background: gray !important;
+}
+
+/* Progress bar itself */
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(to right, #02af53, #2200b7);
+  animation: scroll-fill 1s linear forwards;
+  animation-timeline: scroll(root);
+}
+
+@scroll-timeline scroll(root) {
+  source: auto;
+  orientation: block;
+}
+
+@keyframes scroll-fill {
+  from {
+    inline-size: 0%;
+    filter: hue-rotate(0deg);
+    filter: hue-rotate(0deg);
+  }
+
+  to {
+    inline-size: 100%;
+    filter: hue-rotate(360deg);
+    filter: hue-rotate(360deg);
+  }
+}
+
+
+/* ----------- Shape area ------------ */
+
+/* shape1 design */
+
+#shape {
+  border-radius: 80% 20% 40% 30%;
+  background: linear-gradient(90deg, rgb(21, 130, 173) 0%, rgb(97, 55, 222) 50%,
+      rgb(42, 238, 120) 100%);
+  background-size: 200% 200%;
+  animation: morph 8s ease-in-out infinite, gradientShift 6s ease-in-out infinite;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  opacity: 0.8;
+}
+
+.shape_modify {
+  background-image: linear-gradient(to left bottom, #0a54c4, #7808e9, #03c79a, #00da84, #a8eb12) !important;
+}
+
+#shape2 {
+  border-radius: 27% 73% 61% 39% / 75% 55% 45% 25%;
+  background: linear-gradient(90deg, #521EAB 0%, rgb(97, 55, 222) 50%,
+      #C70A9F 100%);
+}
+
+#shape3 {
+  border-radius: 14% 42% 10% 58% / 39% 33% 39% 33%;
+  background: linear-gradient(120deg, #1996e8 0%, #02be9f 50%,
+      #610fe4 100%);
+}
+
+#shape5 {
+  border-radius: 30% 70% 70% 30% / 30% 52% 48% 70%;
+  background: linear-gradient(45deg, #E7CBEB 0%, #C9099F 50%,
+      #541DAB 100%);
+}
+
+
+
+@keyframes morph {
+  0% {
+    border-radius: 80% 20% 40% 30%;
+  }
+
+  25% {
+    border-radius: 30% 60% 70% 40%;
+  }
+
+  50% {
+    border-radius: 50% 50% 30% 70%;
+  }
+
+  75% {
+    border-radius: 70% 30% 60% 40%;
+  }
+
+  100% {
+    border-radius: 80% 20% 40% 30%;
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+.customradius {
+  border-radius: 23% 77% 61% 39% / 79% 71% 29% 21%;
+}
+
+
+
+/* preloader */
+
+
+.wrapper {
+  position: absolute;
+  float: left;
+  margin: 140px 100px;
+}
+
+.line {
+  position: absolute;
+  top: 0px;
+  width: 2px;
+  height: 8px;
+  background-color: red;
+}
+
+.circle {
+  position: absolute;
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: blue;
+}
+
+.circle-top {
+  top: 0px;
+  left: -3.5px;
+}
+
+.circle-bottom {
+  bottom: 0px;
+  left: -3.5px;
+}
+
+.dot {
+  position: absolute;
+  display: block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  left: -1.5px;
+}
+
+.line1 {
+  margin-left: 0px;
+  background-color: #2410CB;
+  -webkit-animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) infinite;
+  animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) infinite;
+}
+
+.line1>span {
+  background-color: #D4141E;
+}
+
+.line1>.dotted>.dot {
+  background-color: #D4141E;
+}
+
+.line1>.dotted>.dot-top {
+  top: 0px;
+  -webkit-animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) infinite;
+  animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) infinite;
+}
+
+.line1>.dotted>.dot-bottom {
+  bottom: 0px;
+  -webkit-animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) infinite;
+  animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) infinite;
+}
+
+.line1>.dotted>.dot-middle-top {
+  top: 0px;
+  -webkit-animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) infinite;
+  animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) infinite;
+}
+
+.line1>.dotted>.dot-middle-bottom {
+  bottom: 0px;
+  -webkit-animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) infinite;
+  animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) infinite;
+}
+
+.line2 {
+  margin-left: 35px;
+  background-color: #852DF4;
+  -webkit-animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .05s infinite;
+  animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .05s infinite;
+}
+
+.line2>span {
+  background-color: #FC7E48;
+}
+
+.line2>.dotted>.dot {
+  background-color: #FC7E48;
+}
+
+.line2>.dotted>.dot-top {
+  top: 0px;
+  -webkit-animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .05s infinite;
+  animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .05s infinite;
+}
+
+.line2>.dotted>.dot-bottom {
+  bottom: 0px;
+  -webkit-animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .05s infinite;
+  animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .05s infinite;
+}
+
+.line2>.dotted>.dot-middle-top {
+  top: 0px;
+  -webkit-animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .05s infinite;
+  animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .05s infinite;
+}
+
+.line2>.dotted>.dot-middle-bottom {
+  bottom: 0px;
+  -webkit-animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .05s infinite;
+  animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .05s infinite;
+}
+
+.line3 {
+  margin-left: 70px;
+  background-color: #F42DF1;
+  -webkit-animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .1s infinite;
+  animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .1s infinite;
+}
+
+.line3>span {
+  background-color: #EDEB29;
+}
+
+.line3>.dotted>.dot {
+  background-color: #EDEB29;
+}
+
+.line3>.dotted>.dot-top {
+  top: 0px;
+  -webkit-animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .1s infinite;
+  animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .1s infinite;
+}
+
+.line3>.dotted>.dot-bottom {
+  bottom: 0px;
+  -webkit-animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .1s infinite;
+  animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .1s infinite;
+}
+
+.line3>.dotted>.dot-middle-top {
+  top: 0px;
+  -webkit-animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .1s infinite;
+  animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .1s infinite;
+}
+
+.line3>.dotted>.dot-middle-bottom {
+  bottom: 0px;
+  -webkit-animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .1s infinite;
+  animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .1s infinite;
+}
+
+.line4 {
+  margin-left: 105px;
+  background-color: #F91396;
+  -webkit-animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .15s infinite;
+  animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .15s infinite;
+}
+
+.line4>span {
+  background-color: #ACED29;
+}
+
+.line4>.dotted>.dot {
+  background-color: #ACED29;
+}
+
+.line4>.dotted>.dot-top {
+  top: 0px;
+  -webkit-animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .15s infinite;
+  animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .15s infinite;
+}
+
+.line4>.dotted>.dot-bottom {
+  bottom: 0px;
+  -webkit-animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .15s infinite;
+  animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .15s infinite;
+}
+
+.line4>.dotted>.dot-middle-top {
+  top: 0px;
+  -webkit-animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .15s infinite;
+  animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .15s infinite;
+}
+
+.line4>.dotted>.dot-middle-bottom {
+  bottom: 0px;
+  -webkit-animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .15s infinite;
+  animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .15s infinite;
+}
+
+.line5 {
+  margin-left: 140px;
+  background-color: #D4141E;
+  -webkit-animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .2s infinite;
+  animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .2s infinite;
+}
+
+.line5>span {
+  background-color: #4EF02B;
+}
+
+.line5>.dotted>.dot {
+  background-color: #4EF02B;
+}
+
+.line5>.dotted>.dot-top {
+  top: 0px;
+  -webkit-animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .2s infinite;
+  animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .2s infinite;
+}
+
+.line5>.dotted>.dot-bottom {
+  bottom: 0px;
+  -webkit-animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .2s infinite;
+  animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .2s infinite;
+}
+
+.line5>.dotted>.dot-middle-top {
+  top: 0px;
+  -webkit-animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .2s infinite;
+  animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .2s infinite;
+}
+
+.line5>.dotted>.dot-middle-bottom {
+  bottom: 0px;
+  -webkit-animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .2s infinite;
+  animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .2s infinite;
+}
+
+.line6 {
+  margin-left: 175px;
+  background-color: #FC7E48;
+  -webkit-animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .25s infinite;
+  animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .25s infinite;
+}
+
+.line6>span {
+  background-color: #38E790;
+}
+
+.line6>.dotted>.dot {
+  background-color: #38E790;
+}
+
+.line6>.dotted>.dot-top {
+  top: 0px;
+  -webkit-animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .25s infinite;
+  animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .25s infinite;
+}
+
+.line6>.dotted>.dot-bottom {
+  bottom: 0px;
+  -webkit-animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .25s infinite;
+  animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .25s infinite;
+}
+
+.line6>.dotted>.dot-middle-top {
+  top: 0px;
+  -webkit-animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .25s infinite;
+  animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .25s infinite;
+}
+
+.line6>.dotted>.dot-middle-bottom {
+  bottom: 0px;
+  -webkit-animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .25s infinite;
+  animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .25s infinite;
+}
+
+.line7 {
+  margin-left: 210px;
+  background-color: #EDEB29;
+  -webkit-animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .3s infinite;
+  animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .3s infinite;
+}
+
+.line7>span {
+  background-color: #25EACC;
+}
+
+.line7>.dotted>.dot {
+  background-color: #25EACC;
+}
+
+.line7>.dotted>.dot-top {
+  top: 0px;
+  -webkit-animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .3s infinite;
+  animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .3s infinite;
+}
+
+.line7>.dotted>.dot-bottom {
+  bottom: 0px;
+  -webkit-animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .3s infinite;
+  animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .3s infinite;
+}
+
+.line7>.dotted>.dot-middle-top {
+  top: 0px;
+  -webkit-animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .3s infinite;
+  animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .3s infinite;
+}
+
+.line7>.dotted>.dot-middle-bottom {
+  bottom: 0px;
+  -webkit-animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .3s infinite;
+  animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .3s infinite;
+}
+
+.line8 {
+  margin-left: 245px;
+  background-color: #ACED29;
+  -webkit-animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .35s infinite;
+  animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .35s infinite;
+}
+
+.line8>span {
+  background-color: #309CDF;
+}
+
+.line8>.dotted>.dot {
+  background-color: #309CDF;
+}
+
+.line8>.dotted>.dot-top {
+  top: 0px;
+  -webkit-animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .35s infinite;
+  animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .35s infinite;
+}
+
+.line8>.dotted>.dot-bottom {
+  bottom: 0px;
+  -webkit-animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .35s infinite;
+  animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .35s infinite;
+}
+
+.line8>.dotted>.dot-middle-top {
+  top: 0px;
+  -webkit-animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .35s infinite;
+  animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .35s infinite;
+}
+
+.line8>.dotted>.dot-middle-bottom {
+  bottom: 0px;
+  -webkit-animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .35s infinite;
+  animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .35s infinite;
+}
+
+.line9 {
+  margin-left: 280px;
+  background-color: #4EF02B;
+  -webkit-animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .4s infinite;
+  animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .4s infinite;
+}
+
+.line9>span {
+  background-color: #2544E7;
+}
+
+.line9>.dotted>.dot {
+  background-color: #2544E7;
+}
+
+.line9>.dotted>.dot-top {
+  top: 0px;
+  -webkit-animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .4s infinite;
+  animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .4s infinite;
+}
+
+.line9>.dotted>.dot-bottom {
+  bottom: 0px;
+  -webkit-animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .4s infinite;
+  animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .4s infinite;
+}
+
+.line9>.dotted>.dot-middle-top {
+  top: 0px;
+  -webkit-animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .4s infinite;
+  animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .4s infinite;
+}
+
+.line9>.dotted>.dot-middle-bottom {
+  bottom: 0px;
+  -webkit-animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .4s infinite;
+  animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .4s infinite;
+}
+
+.line10 {
+  margin-left: 315px;
+  background-color: #38E790;
+  -webkit-animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .45s infinite;
+  animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .45s infinite;
+}
+
+.line10>span {
+  background-color: #852DF4;
+}
+
+.line10>.dotted>.dot {
+  background-color: #852DF4;
+}
+
+.line10>.dotted>.dot-top {
+  top: 0px;
+  -webkit-animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .45s infinite;
+  animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .45s infinite;
+}
+
+.line10>.dotted>.dot-bottom {
+  bottom: 0px;
+  -webkit-animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .45s infinite;
+  animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .45s infinite;
+}
+
+.line10>.dotted>.dot-middle-top {
+  top: 0px;
+  -webkit-animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .45s infinite;
+  animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .45s infinite;
+}
+
+.line10>.dotted>.dot-middle-bottom {
+  bottom: 0px;
+  -webkit-animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .45s infinite;
+  animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .45s infinite;
+}
+
+.line11 {
+  margin-left: 350px;
+  background-color: #25EACC;
+  -webkit-animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .5s infinite;
+  animation: line 2s cubic-bezier(0.250, 0, 0.705, 1) .5s infinite;
+}
+
+.line11>span {
+  background-color: #F42DF1;
+}
+
+.line11>.dotted>.dot {
+  background-color: #F42DF1;
+}
+
+.line11>.dotted>.dot-top {
+  top: 0px;
+  -webkit-animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .5s infinite;
+  animation: dot-top 2s cubic-bezier(0.250, 0, 0.705, 1) .5s infinite;
+
+}
+
+.line11>.dotted>.dot-bottom {
+  bottom: 0px;
+  -webkit-animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .5s infinite;
+  animation: dot-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .5s infinite;
+}
+
+.line11>.dotted>.dot-middle-top {
+  top: 0px;
+  -webkit-animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .5s infinite;
+  animation: dot-middle-top 2s cubic-bezier(0.250, 0, 0.705, 1) .5s infinite;
+}
+
+.line11>.dotted>.dot-middle-bottom {
+  bottom: 0px;
+  -webkit-animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .5s infinite;
+  animation: dot-middle-bottom 2s cubic-bezier(0.250, 0, 0.705, 1) .5s infinite;
+}
+
+@-webkit-keyframes line {
+  0% {
+    height: 4px;
+    top: 0px;
+    left: 0px;
+    -webkit-transform: rotate(-65deg)
+  }
+
+  10% {
+    height: 220px;
+    top: -110px;
+    left: 15px;
+  }
+
+  45% {
+    height: 200px;
+    top: -100px;
+    left: 25px;
+  }
+
+  70% {
+    height: 8px;
+    top: 0px;
+    left: 25px;
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    height: 8px;
+    top: 0px;
+    left: 15px;
+    -webkit-transform: rotate(0deg);
+  }
+}
+
+@-webkit-keyframes dot-top {
+  0% {
+    top: -30px
+  }
+
+  10% {
+    top: -30px;
+  }
+
+  45% {
+    top: -25px;
+  }
+
+  60% {
+    top: 0px;
+  }
+
+  100% {
+    top: 0px;
+  }
+}
+
+@-webkit-keyframes dot-bottom {
+  0% {
+    bottom: -30px
+  }
+
+  10% {
+    bottom: -30px;
+  }
+
+  45% {
+    bottom: -25px;
+  }
+
+  60% {
+    bottom: 0px;
+  }
+
+  100% {
+    bottom: 0px;
+  }
+}
+
+@-webkit-keyframes dot-middle-top {
+  0% {}
+
+  10% {}
+
+  45% {
+    top: 98px;
+  }
+
+  70% {
+    top: -50px;
+  }
+
+  85% {
+    top: 0px;
+  }
+
+  100% {
+    top: 0px;
+  }
+}
+
+@-webkit-keyframes dot-middle-bottom {
+  0% {}
+
+  10% {}
+
+  45% {
+    bottom: 98px;
+  }
+
+  70% {
+    bottom: -50px;
+  }
+
+  85% {
+    bottom: 0px;
+  }
+
+  100% {
+    bottom: 0px;
+  }
+}
+
+@keyframes line {
+  0% {
+    height: 4px;
+    top: 0px;
+    left: 0px;
+    transform: rotate(-65deg)
+  }
+
+  10% {
+    height: 220px;
+    top: -110px;
+    left: 15px;
+  }
+
+  45% {
+    height: 200px;
+    top: -100px;
+    left: 25px;
+  }
+
+  70% {
+    height: 8px;
+    top: 0px;
+    left: 25px;
+    transform: rotate(0deg);
+  }
+
+  100% {
+    height: 8px;
+    top: 0px;
+    left: 15px;
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes dot-top {
+  0% {
+    top: -30px
+  }
+
+  10% {
+    top: -30px;
+  }
+
+  45% {
+    top: -25px;
+  }
+
+  60% {
+    top: 0px;
+  }
+
+  100% {
+    top: 0px;
+  }
+}
+
+@keyframes dot-bottom {
+  0% {
+    bottom: -30px
+  }
+
+  10% {
+    bottom: -30px;
+  }
+
+  45% {
+    bottom: -25px;
+  }
+
+  60% {
+    bottom: 0px;
+  }
+
+  100% {
+    bottom: 0px;
+  }
+}
+
+@keyframes dot-middle-top {
+  0% {}
+
+  10% {}
+
+  45% {
+    top: 78px;
+  }
+
+  70% {
+    top: -50px;
+  }
+
+  85% {
+    top: 0px;
+  }
+
+  100% {
+    top: 0px;
+  }
+}
+
+@keyframes dot-middle-bottom {
+  0% {}
+
+  10% {}
+
+  45% {
+    bottom: 78px;
+  }
+
+  70% {
+    bottom: -50px;
+  }
+
+  85% {
+    bottom: 0px;
+  }
+
+  100% {
+    bottom: 0px;
+  }
+}

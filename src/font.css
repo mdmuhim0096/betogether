@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'JosefinSans';
+    src: url('src/fonts/josefin/JosefinSans-Italic-VariableFont_wght.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('./assets/fonts/Poppins-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+body {
+    font-family: 'JosefinSans', sans-serif;
+}
+
