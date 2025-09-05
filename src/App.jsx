@@ -6,8 +6,8 @@ import Blog from "./page/Blog";
 import Testimonials from "./page/Testimonials";
 import Contact from "./page/Contact"
 import { goToTop } from "./components/utils/function";
-import { Suspense, lazy } from "react";
-const Home = lazy(() => import("./page/Home"));
+import Home from "./page/Home";
+
 import { ChevronUp } from "lucide-react";
 
 const App = () => {
@@ -23,7 +23,7 @@ const App = () => {
       </div>
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<PageWrapper><Suspense><Home /></Suspense></PageWrapper>} />
+          <Route path="/" element={<Home />} />
           <Route path="/blog" element={<PageWrapper><Blog /></PageWrapper>} />
           <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
           <Route path="/testimonials" element={<PageWrapper><Testimonials /></PageWrapper>} />
