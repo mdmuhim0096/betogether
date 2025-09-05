@@ -14,8 +14,6 @@ const ComplexScale = () => {
     const mainBoxRef = useRef();
     const childBoxRefOne = useRef();
     const childBoxRefTow = useRef();
-    const childBoxRef3 = useRef();
-    const childBoxRef4 = useRef();
 
     useLayoutEffect(() => {
         const tl = gsap.timeline();
@@ -24,12 +22,10 @@ const ComplexScale = () => {
             tl.fromTo(
                 childBoxRefOne.current,
                 {
-                    xPercent: "-100",
                     opacity: 0,
-                    rotate: 45
+                    rotate: -400
                 },
                 {
-                    xPercent: 100,
                     opacity: 1,
                     rotate: 0,
                     scrollTrigger: {
@@ -46,12 +42,10 @@ const ComplexScale = () => {
             tl.fromTo(
                 childBoxRefTow.current,
                 {
-                    xPercent: "100",
                     opacity: 0,
                     rotate: 700
                 },
                 {
-                    xPercent: "-100",
                     opacity: 1,
                     rotate: 0,
                     scrollTrigger: {
@@ -78,6 +72,7 @@ const ComplexScale = () => {
                     }
                 }
             )
+
             tl.fromTo("#focudp",
                 { scale: 0, opacity: 0, y: 50, duration: 1.4 },
                 {
