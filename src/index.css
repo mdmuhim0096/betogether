@@ -21,6 +21,10 @@
   width: 0;
 }
 
+body {
+  font-family: "Josefin Sans", sans-serif;
+}
+
 #focusd {
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: #fff;
